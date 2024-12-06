@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/styles/styles.css">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <title>Lego New-In-Box</title>
+    </head>
+    <body>
+        <header class="site-header">
+            <h1 class="site-title">Lego NIB</h1>
+            <nav class="menu">
+                <button class="menu-button" id="menu-button">Menu</button>
+                <ul class="dropdown" id="dropdown-menu">
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/register">Register</a></li>
+                    <li><a href="/bid">Bid</a></li>
+                    <li><a href="/request">Request</a></li>
+                    <li><a href="/checkout">Checkout</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <h2 class="section-title">Available Lego Sets</h2>
+
+            <!-- Display success message if it exists -->
+            <% if (success) { %>
+            <div class="success-message">
+                <p><%= success %></p>
+            </div>
+            <% } %>
+
+            <ul class="lego-list">
+                <% sets.forEach(set => { %>
+                <li class="lego-item">
+                    <div class="lego-card">
+                        <h3 class="lego-name"><%= set.name %> (<%= set.id
+                            %>)</h3>
+                        <p class="lego-info">Pieces: <%= set.pieces %></p>
+                        <p class="lego-info">Year Released: <%=
+                            set.year_released %></p>
+                        <p class="lego-info">Current Bid: $<%= set.currentValue
+                            %></p>
+                        <p class="lego-info">Buy It Now: $<%= set.buy_it_now
+                            %></p>
+
+                        <!-- Bid and Buy It Now Buttons -->
+                        <div class="lego-actions">
+                            <a
+                                href="<%= session.user ? '/bid/' + set.id : '/login' %>"
+                                class="btn btn-primary">Bid</a>
+                            <a
+                                href="<%= session.user ? '/checkout/' + set.id : '/register' %>"
+                                class="btn btn-success">Buy It Now</a>
+                        </div>
+                    </div>
+                </li>
+                <% }) %>
+            </ul>
+        </main>
+        <footer class="site-footer">
+            <p>&copy; 2024 Lego New-In-Box. All rights reserved.</p>
+        </footer>
+
+        <!-- Link to the external JavaScript files -->
+        <script src="/scripts/menu-button.js"></script>
+        <script src="/scripts/carousel.js"></script>
+
+
+    </body>
+</html>

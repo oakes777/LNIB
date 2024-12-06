@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <title><%= title %></title>
+</head>
+<body>
+    <header class="site-header">
+        <h1 class="site-title">Place a Bid</h1>
+        <nav class="menu">
+            <button class="menu-button" id="menu-button">Menu</button>
+            <ul class="dropdown" id="dropdown-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/checkout">Checkout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main-content">
+        <div class="lego-set-details">
+            <h2><%= legoSet.name %> (<%= legoSet.id %>)</h2>
+            <p><strong>Pieces:</strong> <%= legoSet.pieces %></p>
+            <p><strong>Year Released:</strong> <%= legoSet.year_released %></p>
+            <p><strong>Current Bid:</strong> $<%= legoSet.currentValue %></p>
+            <p><strong>Buy It Now Price:</strong> $<%= legoSet.buy_it_now %></p>
+        </div>
+
+        <!-- Error Message Section -->
+        <% if (error) { %>
+        <div class="error-message">
+            <p><%= error %></p>
+        </div>
+        <% } %>
+
+        <!-- Bid Form Section -->
+        <div class="bid-section">
+            <h3>Place Your Bid</h3>
+            <form action="/bid" method="POST" class="bid-form">
+                <input type="hidden" name="legoSetID" value="<%= legoSet.id %>">
+                <input type="hidden" name="userID" value="<%= session.user.id %>">
+
+                <label for="bidAmount">Your Bid:</label>
+                <input type="number" id="bidAmount" name="bidAmount" step="0.01" min="<%= legoSet.currentValue + 0.01 %>" required>
+                <p class="bid-hint">Bid must be greater than $<%= legoSet.currentValue %>.</p>
+
+                <button type="submit" class="btn btn-primary">Submit Bid</button>
+            </form>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <p>&copy; 2024 Lego New In Box. All rights reserved.</p>
+    </footer>
+
+    <!--Javascript links-->
+    <script src="/scripts/menu-button.js"></script>
+    <script src="/scripts/carousel.js"></script>
+
+
+</body>
+</html>

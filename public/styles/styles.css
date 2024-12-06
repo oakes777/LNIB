@@ -1,0 +1,227 @@
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFD700; /* Lego Yellow */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+/*-------------------------------*/
+/* Header Styles */
+.site-header {
+    background-color: #D62828; /* Lego red */
+    text-align: center; /* Keep the title centered */
+    padding: 20px;
+    position: relative; /* For positioning the menu and dropdown */
+    color: #fff;
+}
+
+.site-title {
+    font-size: 2.5rem;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Menu Container */
+.menu {
+    position: absolute; /* Position relative to the header */
+    top: 50%;
+    right: 20px; /* Keep button aligned to the right */
+    transform: translateY(-50%); /* Center vertically within header */
+}
+
+/* Menu Button */
+.menu-button {
+    background-color: #FFCC00; /* Bright yellow */
+    border: 2px solid #333;
+    color: #333;
+    font-size: 1rem;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative; /* Needed for dropdown to position below */
+    z-index: 10;
+}
+
+.menu-button:hover {
+    background-color: #FFD700; /* Slightly lighter yellow on hover */
+}
+
+/* Dropdown Menu */
+.dropdown {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: calc(100% + 2px); /* Position directly below the button */
+    right: 0; /* Align the right edge of the dropdown with the button */
+    background-color: #FFF;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    list-style: none;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    min-width: 150px; /* Ensure dropdown has sufficient width */
+}
+
+.dropdown li {
+    padding: 10px 20px;
+}
+
+.dropdown li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.dropdown li a:hover {
+    color: #D62828; /* Lego red */
+}
+
+/*-------------------------------*/
+/* Main Content */
+.main-content {
+    margin: 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333; /* Darker text for readability on yellow */
+}
+
+/* Lego List and Items */
+.lego-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.lego-item {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.lego-card {
+    text-align: center;
+}
+
+.lego-name {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: #555;
+}
+
+.lego-info {
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+/* Footer Styles */
+.site-footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px 0;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #007bff; /* Blue */
+    color: #fff;
+    border: 2px solid #0056b3;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-success {
+    background-color: #28a745; /* Green */
+    color: #fff;
+    border: 2px solid #1e7e34;
+}
+
+.btn-success:hover {
+    background-color: #1e7e34;
+}
+
+/* Error Message Styling */
+.error-message {
+    color: #d8000c;
+    background-color: #ffbaba;
+    padding: 10px;
+    margin: 15px 0;
+    border: 1px solid #d8000c;
+    border-radius: 5px;
+}
+
+/* Success Message Styling */
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.admin-form label {
+    font-weight: bold;
+}
+
+.admin-form input,
+.admin-form button {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.lego-gallery {
+    display: flex;
+    gap: 10px;
+}
+.lego-gallery .lego-image {
+    width: 150px;
+    height: auto;
+    border-radius: 5px;
+}
